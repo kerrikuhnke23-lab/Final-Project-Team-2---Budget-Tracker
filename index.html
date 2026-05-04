@@ -1,56 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Budget Tracker</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
+<div class="app">
 
-<div class="container">
-  <h1>💰 Budget Tracker</h1>
+  <header>
+    <h1>Budget Tracker</h1>
+    <p>Manage your spending</p>
+  </header>
 
-  <div class="summary">
-    <div class="card">
-      <h3>Balance</h3>
-      <h2 id="balance">$0</h2>
+  <section class="balance-card">
+    <h2>$<span id="balance">0</span></h2>
+    <div class="summary-row">
+      <div class="income">+ $<span id="income">0</span></div>
+      <div class="expense">- $<span id="expense">0</span></div>
     </div>
-    <div class="card income">
-      <h3>Income</h3>
-      <p id="income">$0</p>
-    </div>
-    <div class="card expense">
-      <h3>Expenses</h3>
-      <p id="expense">$0</p>
-    </div>
-  </div>
+  </section>
 
-  <form id="form">
-    <input type="text" id="text" placeholder="Description" required>
+  <section class="form-card">
+    <form id="form">
+      <input type="text" id="text" placeholder="Description" required>
 
-    <select id="category">
-      <option value="Food">Food</option>
-      <option value="Bills">Bills</option>
-      <option value="Shopping">Shopping</option>
-      <option value="Transport">Transport</option>
-      <option value="Other">Other</option>
-    </select>
+      <select id="category">
+        <option>Food</option>
+        <option>Bills</option>
+        <option>Fun</option>
+        <option>Transport</option>
+      </select>
 
-    <input type="date" id="date" required>
-    <input type="number" id="amount" placeholder="Amount (+income, -expense)" required>
+      <input type="date" id="date" required>
+      <input type="number" id="amount" placeholder="Amount" required>
 
-    <button>Add</button>
-  </form>
+      <button>Add Transaction</button>
+    </form>
+  </section>
+
+  <section id="categoryBreakdown"></section>
 
   <button id="clearAll" class="clear-btn">Clear All</button>
 
-  <ul id="list"></ul>
-
-  <canvas id="barChart"></canvas>
-  <canvas id="pieChart"></canvas>
 </div>
-
-<script src="script.js"></script>
-</body>
-</html>
