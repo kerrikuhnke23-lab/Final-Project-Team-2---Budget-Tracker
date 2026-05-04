@@ -1,46 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Budget Tracker</title>
-  <link rel="stylesheet" href="style.css">
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa, #e4ecf7);
+  margin: 0;
+}
 
-  <!-- Chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
 
-  <div class="container">
-    <h1>💰 Budget Tracker</h1>
+h1 {
+  text-align: center;
+}
 
-    <div class="summary">
-      <div class="card">
-        <h3>Balance</h3>
-        <h2 id="balance">$0</h2>
-      </div>
-      <div class="card income">
-        <h3>Income</h3>
-        <p id="income">$0</p>
-      </div>
-      <div class="card expense">
-        <h3>Expenses</h3>
-        <p id="expense">$0</p>
-      </div>
-    </div>
+.summary {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
 
-    <form id="form">
-      <input type="text" id="text" placeholder="Description" required>
-      <input type="number" id="amount" placeholder="Amount (+income, -expense)" required>
-      <button>Add Transaction</button>
-    </form>
+.card {
+  flex: 1;
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
 
-    <ul id="list"></ul>
+.income {
+  border-left: 5px solid green;
+}
 
-    <canvas id="barChart"></canvas>
-    <canvas id="pieChart"></canvas>
+.expense {
+  border-left: 5px solid red;
+}
 
-  </div>
+form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+form input, form button {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+form button {
+  background: #333;
+  color: white;
+  cursor: pointer;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  background: white;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.income-text {
+  color: green;
+}
+
+.expense-text {
+  color: red;
+}
+
+canvas {
+  margin-top: 20px;
+}
