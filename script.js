@@ -37,6 +37,7 @@ function updateUI() {
   expense.textContent = Math.abs(exp).toFixed(2);
 
   updateCharts();
+  renderCategories();
   save();
 }
 
@@ -103,5 +104,32 @@ function updateCharts() {
     }
   });
 }
+function renderCategories() {
+  const container = document.getElementById("categoryBreakdown");
+  container.innerHTML = "";
 
+  const categories = {};
+
+  transactions.forEach(t => {
+    if (t.amount < 0) {
+      categories[t.category] = (categories[t.category] || 0) + Math.abs(t.amount);
+    }
+  });
+
+  Object.keys(categories).forEach(cat => {
+    const value = categories[cat];
+
+    const div = document.createElement("div");
+    div.classList.add("category");
+
+    div.innerHTML = `
+      <h3>${cat} - $${value}</h3>
+      <div class="progress-bar">
+        <div class="progress" style="width:${Math.min(value, 100)}%"></div>
+      </div>
+    `;
+
+    container.appendChild(div);
+  });
+}
 updateUI();
