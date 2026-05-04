@@ -1,104 +1,125 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: #e6eef2;
+  background: linear-gradient(135deg, #eef2f7, #d9e4f5);
   margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px;
 }
 
-/* App container */
-.app {
-  max-width: 420px;
-  margin: 20px auto;
-  background: #fff;
-  border-radius: 25px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+/* Main App Container */
+.container {
+  width: 100%;
+  max-width: 480px;
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 }
 
 /* Header */
-header {
-  background: #8ec5d6;
-  padding: 20px;
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Balance Section */
+.summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.card {
+  flex: 1;
+  background: #f9fbfd;
+  padding: 15px;
+  border-radius: 12px;
   text-align: center;
 }
 
-header h1 {
+.card h3 {
   margin: 0;
+  font-size: 14px;
+  color: #555;
 }
 
-header p {
+.card h2, .card p {
   margin: 5px 0 0;
 }
 
-/* Balance card */
-.balance-card {
-  text-align: center;
-  padding: 20px;
-}
+.income { border-bottom: 4px solid #2ecc71; }
+.expense { border-bottom: 4px solid #e74c3c; }
 
-.summary-row {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 10px;
-}
-
-.income { color: green; }
-.expense { color: red; }
-
-/* Form */
-.form-card {
-  padding: 15px;
-}
-
+/* FORM FIX (important) */
 form {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 10px;
+  margin-bottom: 15px;
 }
 
-form input, form select, form button {
+/* Full width fields */
+#text {
+  grid-column: span 2;
+}
+
+#amount {
+  grid-column: span 2;
+}
+
+/* Inputs */
+form input, form select {
   padding: 10px;
-  border-radius: 10px;
-  border: none;
+  border-radius: 8px;
+  border: 1px solid #ddd;
 }
 
+/* Button */
 form button {
-  background: #4CAF50;
+  grid-column: span 2;
+  padding: 12px;
+  background: #2ecc71;
   color: white;
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
+  font-weight: bold;
 }
 
 form button:hover {
-  background: #3e9442;
+  background: #27ae60;
 }
 
-/* Category Cards */
-.category {
-  padding: 15px;
-  border-bottom: 1px solid #eee;
-}
-
-.category h3 {
-  margin: 0 0 5px;
-}
-
-.progress-bar {
-  height: 8px;
-  background: #ddd;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.progress {
-  height: 100%;
-  background: green;
-}
-
-/* Clear button */
+/* Clear Button */
 .clear-btn {
   width: 100%;
-  padding: 12px;
-  background: red;
+  padding: 10px;
+  background: #e74c3c;
   color: white;
   border: none;
+  border-radius: 10px;
+  margin-bottom: 15px;
   cursor: pointer;
+}
+
+/* Transactions */
+li {
+  list-style: none;
+  background: #f9fbfd;
+  margin: 8px 0;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.income-text { color: #2ecc71; }
+.expense-text { color: #e74c3c; }
+
+/* Charts */
+canvas {
+  margin-top: 20px;
 }
