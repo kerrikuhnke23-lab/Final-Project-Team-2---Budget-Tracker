@@ -1,1 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Budget Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+  <h1>Budget Tracker</h1>
+
+  <div class="balance">
+    <h2>Balance: $<span id="balance">0</span></h2>
+    <p>Income: $<span id="income">0</span></p>
+    <p>Expenses: $<span id="expense">0</span></p>
+  </div>
+
+  <form id="form">
+    <input type="text" id="text" placeholder="Description" required>
+    <input type="number" id="amount" placeholder="Amount (+income, -expense)" required>
+    <button>Add Transaction</button>
+  </form>
+
+  <ul id="list"></ul>
+
+  <script src="script.js"></script>
+</body>
+</html>
