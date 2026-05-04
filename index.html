@@ -1,82 +1,56 @@
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #f5f7fa, #e4ecf7);
-  margin: 0;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Budget Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
 
-.container {
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
-}
+<div class="container">
+  <h1>💰 Budget Tracker</h1>
 
-h1 {
-  text-align: center;
-}
+  <div class="summary">
+    <div class="card">
+      <h3>Balance</h3>
+      <h2 id="balance">$0</h2>
+    </div>
+    <div class="card income">
+      <h3>Income</h3>
+      <p id="income">$0</p>
+    </div>
+    <div class="card expense">
+      <h3>Expenses</h3>
+      <p id="expense">$0</p>
+    </div>
+  </div>
 
-.summary {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-}
+  <form id="form">
+    <input type="text" id="text" placeholder="Description" required>
 
-.card {
-  flex: 1;
-  background: white;
-  padding: 15px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
+    <select id="category">
+      <option value="Food">Food</option>
+      <option value="Bills">Bills</option>
+      <option value="Shopping">Shopping</option>
+      <option value="Transport">Transport</option>
+      <option value="Other">Other</option>
+    </select>
 
-.income {
-  border-left: 5px solid green;
-}
+    <input type="date" id="date" required>
+    <input type="number" id="amount" placeholder="Amount (+income, -expense)" required>
 
-.expense {
-  border-left: 5px solid red;
-}
+    <button>Add</button>
+  </form>
 
-form {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-}
+  <button id="clearAll" class="clear-btn">Clear All</button>
 
-form input, form button {
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-}
+  <ul id="list"></ul>
 
-form button {
-  background: #333;
-  color: white;
-  cursor: pointer;
-}
+  <canvas id="barChart"></canvas>
+  <canvas id="pieChart"></canvas>
+</div>
 
-ul {
-  padding: 0;
-}
-
-li {
-  list-style: none;
-  background: white;
-  margin: 8px 0;
-  padding: 10px;
-  border-radius: 8px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.income-text {
-  color: green;
-}
-
-.expense-text {
-  color: red;
-}
-
-canvas {
-  margin-top: 20px;
-}
+<script src="script.js"></script>
+</body>
+</html>
