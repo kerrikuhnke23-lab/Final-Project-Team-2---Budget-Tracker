@@ -1,38 +1,75 @@
-<div class="app">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Budget Tracker</title>
+  <link rel="stylesheet" href="style.css">
 
-  <header>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- Header -->
     <h1>Budget Tracker</h1>
-    <p>Manage your spending</p>
-  </header>
 
-  <section class="balance-card">
-    <h2>$<span id="balance">0</span></h2>
-    <div class="summary-row">
-      <div class="income">+ $<span id="income">0</span></div>
-      <div class="expense">- $<span id="expense">0</span></div>
+    <!-- Balance Summary -->
+    <div class="summary">
+      <div class="card">
+        <h3>Balance</h3>
+        <h2>$<span id="balance">0</span></h2>
+      </div>
+
+      <div class="card income">
+        <h3>Income</h3>
+        <p>$<span id="income">0</span></p>
+      </div>
+
+      <div class="card expense">
+        <h3>Expenses</h3>
+        <p>$<span id="expense">0</span></p>
+      </div>
     </div>
-  </section>
 
-  <section class="form-card">
+    <!-- Transaction Form -->
     <form id="form">
       <input type="text" id="text" placeholder="Description" required>
 
       <select id="category">
-        <option>Food</option>
-        <option>Bills</option>
-        <option>Fun</option>
-        <option>Transport</option>
+        <option value="Food">Food</option>
+        <option value="Bills">Bills</option>
+        <option value="Shopping">Shopping</option>
+        <option value="Transport">Transport</option>
+        <option value="Other">Other</option>
       </select>
 
       <input type="date" id="date" required>
-      <input type="number" id="amount" placeholder="Amount" required>
 
-      <button>Add Transaction</button>
+      <input type="number" id="amount" placeholder="Amount (+income, -expense)" required>
+
+      <button type="submit">Add Transaction</button>
     </form>
-  </section>
 
-  <section id="categoryBreakdown"></section>
+    <!-- Clear Button -->
+    <button id="clearAll" class="clear-btn">Clear All</button>
 
-  <button id="clearAll" class="clear-btn">Clear All</button>
+    <!-- Transaction List -->
+    <ul id="list"></ul>
 
-</div>
+    <!-- Category Breakdown (progress bars) -->
+    <section id="categoryBreakdown"></section>
+
+    <!-- Charts -->
+    <canvas id="barChart"></canvas>
+    <canvas id="pieChart"></canvas>
+
+  </div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+
+</body>
+</html>
