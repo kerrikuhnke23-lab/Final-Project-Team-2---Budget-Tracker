@@ -4,50 +4,57 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
   padding: 40px 15px;
 }
 
-/* MAIN APP BOX */
+/* MAIN APP */
 .container {
   width: 100%;
-  max-width: 500px;
+  max-width: 420px; /* 👈 tighter = less stretched */
   background: white;
-  border-radius: 20px;
-  padding: 25px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
 }
 
-/* HEADER */
-h1 {
+/* HEADER (BIG VISUAL FIX) */
+.header {
+  background: linear-gradient(135deg, #6fb1c7, #4CAF50);
+  padding: 25px 20px;
   text-align: center;
-  margin-bottom: 5px;
+  color: white;
 }
 
-p {
-  text-align: center;
-  color: #777;
-  margin-bottom: 20px;
+.header h1 {
+  margin: 0;
+  font-size: 24px;
 }
 
-/* BALANCE */
+.header p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* BALANCE SECTION */
 .summary {
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
+  padding: 20px;
 }
 
 .card {
   flex: 1;
   background: #f8fafc;
   padding: 15px;
-  border-radius: 12px;
+  border-radius: 15px;
   text-align: center;
 }
 
 .card h3 {
   margin: 0;
-  font-size: 14px;
+  font-size: 13px;
+  color: #555;
 }
 
 .card h2, .card p {
@@ -62,22 +69,21 @@ p {
   border-bottom: 4px solid #e74c3c;
 }
 
-/* FORM GRID */
+/* FORM SECTION */
 form {
+  padding: 0 20px 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
-  margin-bottom: 15px;
 }
 
 #text, #amount {
   grid-column: span 2;
 }
 
-/* INPUTS */
 form input, form select {
   padding: 10px;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid #ddd;
 }
 
@@ -85,37 +91,41 @@ form input, form select {
 form button {
   grid-column: span 2;
   padding: 12px;
-  background: #2ecc71;
+  background: #4CAF50;
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   font-weight: bold;
   cursor: pointer;
 }
 
 form button:hover {
-  background: #27ae60;
+  background: #3e9442;
 }
 
 /* CLEAR BUTTON */
 .clear-btn {
-  width: 100%;
+  width: calc(100% - 40px);
+  margin: 0 20px 20px;
   padding: 12px;
   background: #e74c3c;
   color: white;
   border: none;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  border-radius: 12px;
   cursor: pointer;
 }
 
-/* LIST */
+/* TRANSACTIONS */
+#list {
+  padding: 0 20px;
+}
+
 li {
   list-style: none;
   background: #f8fafc;
   margin: 8px 0;
   padding: 12px;
-  border-radius: 8px;
+  border-radius: 10px;
   display: flex;
   justify-content: space-between;
 }
@@ -123,7 +133,28 @@ li {
 .income-text { color: #2ecc71; }
 .expense-text { color: #e74c3c; }
 
+/* CATEGORY SECTION */
+#categoryBreakdown {
+  padding: 20px;
+}
+
+.category {
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: #4CAF50;
+}
+
 /* CHARTS */
 canvas {
-  margin-top: 20px;
+  padding: 20px;
 }
